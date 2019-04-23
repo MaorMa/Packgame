@@ -125,7 +125,7 @@ $(document).ready(function () {
             document.getElementById("loginForm").reset();
             $("#username-error").hide();
             var userString = document.getElementById("user");
-            userString.innerHTML = "Hello " + username + " ! :)";
+            userString.innerHTML = "Hello " + username + " !:)";
             userString.style.fontWeight = 'bold';
             return false;
         } else
