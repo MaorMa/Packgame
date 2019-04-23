@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!--head -->
+<head>
+    <title>Pacman</title>
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="mainLogic.js"></script>
+    <script type="text/javascript" src="loginLogic.js"></script>
+</head>
+<body>
+<!--menu-->
+<div id="menu">
+    <nav class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#" onclick="changeScreen('Welcome')"> Welcome</a>
+        <a class="navbar-brand" href="#" onclick="changeScreen('login')"> Login</a>
+        <a class="navbar-brand" href="#" onclick="changeScreen('register')"> Register</a>
+        <a class="navbar-brand" href="#" onclick="aboutModal()"> About</a>
+    </nav>
+</div>
+
+<!--content -->
+<div class="wholeScreen">
+    <!--Welcome-->
+    <div id="Welcome" class="part">
+        <div id="logo"><img height="250" width="960" src="img/packman-logo.png"/></div>
+        <p><b>Welcome to packman game!</b></p>
+        <div id="background-gif"></div>
+        <br>
+        <button class="btn btn-outline-primary" type="button" onclick="changeScreen('login')">Login</button>
+        <button class="btn btn-outline-primary" type="button" onclick="changeScreen('register')">Register</button>
+    </div>
+    <!--Login-->
+    <div id="login" class="part">
+        <form id="loginForm">
+            <div class="container">
+                <b><h1>Pac Login</h1></b>
+                <hr>
+                <label><b>Username</b></label>
+                <br>
+                <input type="text" placeholder="Username" id="username" required>
+                <br>
+                <label><b>Password</b></label>
+                <br>
+                <input type="password" placeholder="Password" id="pass" required>
+                <span id="pass-error" class="error-message"></span>
+                <span id="username-error" class="error-message"></span>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+                <div>
+                    Not a member?
+                    <a href="#" onclick="changeScreen('register')">Register</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- The Modal -->
+    <div id="about" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <b><p> Developers: Maor Maimon | Yaniv Knobel </p></b>
+            <p> Hello there! We are students at the department of Software and information systems engineering at ben
+                gurion university of the negev.</p>
+            <p> This pacman game was developed as part of university course "Internet Programming Environments" </p>
+            <p> jQuery Plugins take place during this game: During coding login & register forms, We used jQuery like
+                ($("#id") to get forms data from the user and also $(document).ready to get DOM after page was
+                loaded.</p>
+            <p> Difficulties we faced during game development: We had some problems during drawing the monsters from
+                images (not working at the beginning), and in general during game coding.</p>
+            <p> In general, we enjoyed to create this awesome game, and and we're glad we've learned more about js and
+                jQuery in particularly.</p>
+        </div>
+
+    </div>
+    <!--Register-->
+    <div id="register" class="part">
+        <form id="register-form">
+            <div class="container">
+                <h1>Register</h1>
+                <hr>
+                <label><b>First name</b></label>
+                <input type="text" id="first_name_input" placeholder="Enter First name" name="fname" required>
+                <br>
+                <span id="first_name_error" class="error_notification"></span>
+                <br>
+                <label><b>Last name</b></label>
+                <input type="text" id="last_name_input" placeholder="Enter Last name" name="lname" required>
+                <br>
+                <span id="last_name_error" class="error_notification"></span>
+                <br>
+                <label><b>Your Email</b></label>
+                <input type="email" id="email_input" placeholder="Enter Email" name="email" required>
+                <br>
+                <br>
+                <label><b>Username</b></label>
+                <input type="text" id="user_name_input" placeholder="Enter Username" name="un" required>
+                <br>
+                <label><b>Password</b></label>
+                <input type="password" id="password_input" placeholder="Enter Password" name="psw" required>
+                <br>
+                <span id="password_error" class="error_notification"></span>
+                <br>
+                <label><b>Birth date </b></label>
+                <input type="date" id="birth_date_input" name="bdate" required>
+                <br>
+                <br>
+                <br>
+                <button type="submit" class="register-btn">Register</button>
+            </div>
+        </form>
+    </div>
+    <!--Canvas-->
+    <div id="canvasDiv" class="part">
+        <div id="container">
+            <div id="user" class="data"><b>Hello,</b></div>
+            <div id="life" class="data">Life: <input class="data_input" id="life_show" type="text" readonly/></div>
+            <div id="score" class="data">Score: <input class="data_input" id="score_show" type="text" readonly/></div>
+            <div id="time" class="data">Time: <input class="data_input" id="time_show" type="text" readonly/></div>
+            <button id="button" type="button" onclick="return startAgain();">Play Again</button>
+        </div>
+        <canvas id="canvas" height="600" width="600"></canvas>
+    </div>
+    <!--Settings-->
+    <div id="settings" class="part">
+        <form id="settingsForm">
+            <div class="container">
+                <b><p> Game setting </p></b>
+                Button up keyboard key <input type="text" id="keyUp" value="ArrowUp" required><br>
+                Button down keyboard key <input type="text" id="keyDown" value="ArrowDown" required><br>
+                Button left keyboard key <input type="text" id="keyLeft" value="ArrowLeft" required><br>
+                Button right keyboard key <input type="text" id="keyRight" value="ArrowRight" required><br>
+                Total number of balls <input type="number" min="50" max="90" id="numOfBalls" size="5" value="50"
+                                             required><br>
+                Total time of the Game<input type="number" min="60" id="timeGame" value="60" size="5" required><br>
+                Total Number of monster <input type="number" min="1" max="3" id="numOfMonsters" size="5" value="3"
+                                               required><br>
+                <button id="random" type="button" onclick="return randomize();">Set random settings</button>
+                <br>
+                <br>
+                <button id="submitSettings" type="submit" onclick="return initialize();">Start game</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- footer -->
+<footer>
+    <p>&copy; 2019 Pacman game developed by maor maimon and yaniv knobel | pacmanGameMY@gmail.com
+    <p>
+</footer>
+</body>
+</html>
