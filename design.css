@@ -255,7 +255,8 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #canvasDiv #user {
-    margin-left: 0;
+    color: darkgreen;
+    margin-left: -100px;
     font-size: 20px;
 }
 

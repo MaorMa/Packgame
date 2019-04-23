@@ -124,7 +124,9 @@ $(document).ready(function () {
             changeScreen('settings');
             document.getElementById("loginForm").reset();
             $("#username-error").hide();
-            document.getElementById("user").innerHTML = "Hello " + username + "!";
+            var userString = document.getElementById("user");
+            userString.innerHTML = "Hello " + username + " ! :)";
+            userString.style.fontWeight = 'bold';
             return false;
         } else
             alert("bad username or password");
