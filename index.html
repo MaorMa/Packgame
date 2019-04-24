@@ -125,7 +125,7 @@
     </div>
     <!--Settings-->
     <div id="settings" class="part">
-        <form id="settingsForm">
+        <form id="settingsForm" onsubmit="return initialize();">
             <div class="container">
                 <b><p> Game setting </p></b>
                 Button up keyboard key <input type="text" id="keyUp" value="ArrowUp" required><br>
@@ -140,7 +140,7 @@
                 <button id="random" type="button" onclick="return randomize();">Set random settings</button>
                 <br>
                 <br>
-                <button id="submitSettings" type="submit" onclick="return initialize();">Start game</button>
+                <button type="submit" id="submitSettings">Start game</button>
             </div>
         </form>
     </div>
