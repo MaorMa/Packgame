@@ -3,7 +3,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 #loginForm{
     text-align: center;
     height: 500px;
@@ -12,7 +11,9 @@ html {
     background-image: url("img/login_back.jpg");
     background-color: #a1d6e6;
 }
-
+body{
+    height: 80%;
+}
 #settingsForm{
     text-align: center;
     height: 700px;
@@ -198,6 +199,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #Welcome {
+    height: 60%;
     background-color: #1f1c22;
     display: block;
 }
