@@ -439,10 +439,8 @@ function UpdatePosition() {
 function drawFigure(context,center,path){
     context.beginPath();
     var img = new Image();
-    img.onload = function(){
-        context.drawImage(img,center.x-30, center.y-30,50,50);
-    };
     img.src = path;
+    context.drawImage(img,center.x-30, center.y-30,50,50);
 }
 
 function moveMonster1() {
