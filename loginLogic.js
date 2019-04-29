@@ -163,7 +163,7 @@ window.onload = function() {
     span.onclick = function() {
         aboutElement.style.display = "none";
     }
-    //close by escape
+    //close by escape button
     $(document).keydown(function(event) {
         if (event.keyCode == 27) {
             aboutElement.style.display = "none";
