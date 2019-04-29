@@ -252,12 +252,11 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #canvasDiv #button {
-    margin-top: 30px;
+    margin-top: 3%;
 }
 
 #canvasDiv #user {
     color: darkgreen;
-    margin-left: -100px;
     font-size: 20px;
 }
 
@@ -265,10 +264,12 @@ input[type=text]:focus, input[type=password]:focus {
     margin-left: 180px;
 }
 #canvasDiv #canvas {
+    overflow:hidden;
     border-style: dashed double none;
     border-width: 5px;
-    width: 600px;
-    margin-top: -65px;
+    width: 450px;
+    height: 450px;
+    margin-top: -5.5%;
     margin-left: 5%;
     background-color: rgba(187, 193, 255, 0.733);
 }

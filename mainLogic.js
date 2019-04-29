@@ -348,12 +348,12 @@ function Draw(x) {
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
             var center = new Object();
-            center.x = i * 60 + 30;
-            center.y = j * 60 + 30;
+            center.x = i * 45 + 22.5;
+            center.y = j * 45 + 22.5;
             if (board[i][j] == 2) {//pac
                 if(lastX == 1){//up
                     context.beginPath();
-                    context.arc(center.x, center.y, 30, 1.65 * Math.PI, 1.35 * Math.PI); // half circle
+                    context.arc(center.x, center.y, 22.5, 1.65 * Math.PI, 1.35 * Math.PI); // half circle
                     context.lineTo(center.x, center.y);
                     context.fillStyle = pac_color; //color
                     context.fill();
@@ -363,7 +363,7 @@ function Draw(x) {
                     context.fill();
                 } else if(lastX == 2){//down
                     context.beginPath();
-                    context.arc(center.x, center.y, 30, 0.65 * Math.PI, 0.35 * Math.PI); // half circle
+                    context.arc(center.x, center.y, 22.5, 0.65 * Math.PI, 0.35 * Math.PI); // half circle
                     context.lineTo(center.x, center.y);
                     context.fillStyle = pac_color; //color
                     context.fill();
@@ -373,7 +373,7 @@ function Draw(x) {
                     context.fill();
                 } else if(lastX == 3){//left
                     context.beginPath();
-                    context.arc(center.x, center.y, 30, 1.15 * Math.PI, 0.85 * Math.PI); // half circle
+                    context.arc(center.x, center.y, 22.5, 1.15 * Math.PI, 0.85 * Math.PI); // half circle
                     context.lineTo(center.x, center.y);
                     context.fillStyle = pac_color; //color
                     context.fill();
@@ -383,7 +383,7 @@ function Draw(x) {
                     context.fill();
                 } else if(lastX == 4){//right
                     context.beginPath();
-                    context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+                    context.arc(center.x, center.y, 22.5, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
                     context.lineTo(center.x, center.y);
                     context.fillStyle = pac_color; //color
                     context.fill();
@@ -411,7 +411,7 @@ function Draw(x) {
                 drawFigure(context,center,'img/medkit.png');
             } else if (board[i][j] == 4) {//wall
                 context.beginPath();
-                context.rect(center.x - 30, center.y - 30, 60, 60);
+                context.rect(center.x - 22.5, center.y - 22.5, 45, 45);
                 context.fillStyle = "gray"; //color
                 context.fill();
             }   
@@ -440,7 +440,7 @@ function drawFigure(context,center,path){
     context.beginPath();
     var img = new Image();
     img.src = path;
-    context.drawImage(img,center.x-30, center.y-30,50,50);
+    context.drawImage(img,center.x-22.5, center.y-22.5,45,45);
 }
 
 function moveMonster1() {
