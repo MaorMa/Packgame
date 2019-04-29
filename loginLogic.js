@@ -159,9 +159,16 @@ $(document).ready(function () {
 window.onload = function() {
     aboutElement = document.getElementById('about');
     span = document.getElementsByClassName("close")[0];
+    //close by click "X"
     span.onclick = function() {
         aboutElement.style.display = "none";
     }
+    //close by escape
+    $(document).keydown(function(event) {
+        if (event.keyCode == 27) {
+            aboutElement.style.display = "none";
+        }
+    });
 }
 
 function aboutModal() {
