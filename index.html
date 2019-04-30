@@ -114,21 +114,21 @@
     </div>
     <!--Canvas-->
     <div id="canvasDiv" class="part">
+        <div id="user" class="data"></div>
         <div id="container">
-            <div id="user" class="data"></div>
             <div id="life" class="data">Life: <input class="data_input" id="life_show" type="text" readonly/></div>
             <div id="score" class="data">Score: <input class="data_input" id="score_show" type="text" readonly/></div>
             <div id="time" class="data">Time: <input class="data_input" id="time_show" type="text" readonly/></div>
             <button id="button" type="button" onclick="return startAgain();">Play Again</button>
         </div>
-        <canvas id="canvas" height="450" width="450"></canvas>
+        <canvas id="canvas" height="600" width="600"></canvas>
     </div>
     <!--Settings-->
     <div id="settings" class="part">
         <form id="settingsForm" onsubmit="return initialize();">
             <div class="container">
                 <b><p> Game setting </p></b>
-                <p> Keyboard keys must be the default keys or the letters a-z only </p>
+                <p> Keyboard keys must be the default keys or the letters a-z only</p>
                 Button up keyboard key <input type="text" id="keyUp" value="ArrowUp" required><br>
                 Button down keyboard key <input type="text" id="keyDown" value="ArrowDown" required><br>
                 Button left keyboard key <input type="text" id="keyLeft" value="ArrowLeft" required><br>
