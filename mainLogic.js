@@ -680,7 +680,7 @@ function movePacman(x) {
     } else if(board[pacman.i][pacman.j] == 13){
         score+=25;
         food_remaining--;
-    }
+    } 
     if(food_remaining == 0){
         audioGame.pause();
         audioGame.currentTime = 0;
