@@ -40,6 +40,7 @@ var lives;
 var time;
 var currUser;
 var audioGame, audioDead, audioWin;
+var food_remaining;
 
 var up, down, left, right;
 
@@ -90,6 +91,7 @@ function Start() {
     boardSpecial = new Array();
     boardTreat = new Array();
     var food_remain = ballNum;
+    food_remaining = ballNum;
     time_elapsed = 0;
     for (var i = 0; i < 10; i++) {//print board
         board[i] = new Array();
@@ -671,11 +673,25 @@ function movePacman(x) {
     }
     if (board[pacman.i][pacman.j] == 1) {
         score+=5;
+        food_remaining--;
     } else if(board[pacman.i][pacman.j] == 12){
         score+=15;
+        food_remaining--;
     } else if(board[pacman.i][pacman.j] == 13){
         score+=25;
-    } else if(board[pacman.i][pacman.j] == 14){
+        food_remaining--;
+    }
+    if(food_remaining == 0){
+        audioGame.pause();
+        audioGame.currentTime = 0;
+        audioWin.play();
+        clearIntervals()
+        if(score<=150)
+            window.alert("You can do better!");
+        else
+            window.alert("You are a WINNER!");
+    }
+    if(board[pacman.i][pacman.j] == 14){
         lives+=1;
     }
     if(boardTreat[pacman.i][pacman.j] == 9){
