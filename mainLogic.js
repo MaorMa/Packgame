@@ -41,6 +41,9 @@ var time;
 var currUser;
 var audioGame, audioDead, audioWin;
 var food_remaining;
+var fivePointsColor;
+var fifteenPointsColor;
+var twentyFivePointsColor;
 
 var up, down, left, right;
 
@@ -71,7 +74,10 @@ function initialize() {
     right = keyCodes[keyRight.value] ; //get right key
     monsterNum = numOfMonsters.value; //get number of monsters
     time = timeGame.value; //get game time
-    ballNum = Math.min(80,numOfBalls.value); //get num of balls
+    ballNum = numOfBalls.value; //get num of balls
+    fivePointsColor = fivePointsBall.value;
+    fifteenPointsColor = fifteenPointsBall.value;
+    twentyFivePointsColor = twentyFivePointsBall.value;
     lives = 3;
     Start();
     return false;
@@ -227,7 +233,7 @@ function putWalls() {
     board[8][2] = 4;
     board[9][2] = 4;
     board[2][8] = 4;
-    board[2][9] = 4;
+    //board[2][9] = 4;
     board[8][8] = 4;
 }
 
@@ -291,17 +297,30 @@ function restart() {
 function findRandomEmptyCell(board) {
     var i = Math.floor((Math.random() * 10));
     var j = Math.floor((Math.random() * 10));
-    while (board[i][j] != 0 || boardSpecial[i][j] != 0) {
+    while (board[i][j] != 0){//} || boardSpecial[i][j] != 0) {
         i = Math.floor((Math.random() * 10));
         j = Math.floor((Math.random() * 10));
     }
     return [i, j];
 }
 
+//return random color
+function initRandomColor() {
+  var suffix = '0123456789ABCDEF';
+  var tag = '#';
+  for (var i = 0; i < 6; i++) {
+    tag += suffix[Math.floor(Math.random() * 16)];
+  }
+  return tag;
+}
+
 function randomize() {
-    numOfMonsters.value = Math.floor(Math.random()*3+1); //get number of monsters
-    timeGame.value = Math.floor(Math.random()*100 +60); //get number of monsters
-    numOfBalls.value = Math.floor(Math.random()*40+50); //get number of monsters
+    numOfMonsters.value = Math.floor(Math.random()*3+1); //random num of monsters
+    timeGame.value = Math.floor(Math.random()*100 +60); //random time game
+    numOfBalls.value = Math.floor(Math.random()*40+50); // random num of balls
+    fivePointsBall.value = initRandomColor();
+    fifteenPointsBall.value = initRandomColor();
+	twentyFivePointsBall.value = initRandomColor();
     num_Of_Balls_settings = numOfBalls.value;
     time_settings = timeGame.value;
     num_of_monsters_settings = numOfMonsters.value;
@@ -397,17 +416,17 @@ function Draw(x) {
             } else if (board[i][j] == 1) {//food1
                 context.beginPath();
                 context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
-                context.fillStyle = "black"; //color
+                context.fillStyle = fivePointsColor //color
                 context.fill();
             } else if(board[i][j] == 12){//food12
                 context.beginPath();
                 context.arc(center.x, center.y, 10, 0, 2 * Math.PI); // circle
-                context.fillStyle = "blue"; //color
+                context.fillStyle = fifteenPointsColor; //color
                 context.fill();
             } else if(board[i][j] == 13){//food13
                 context.beginPath();
                 context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-                context.fillStyle = "red"; //color
+                context.fillStyle = twentyFivePointsColor; //color
                 context.fill();
             } else if(board[i][j] == 14){//med
                 drawFigure(context,center,'img/medkit.png');
@@ -713,7 +732,7 @@ function changeScreen(screen) {
         audioWin.pause();
         audioWin.currentTime=0;
         if(screen!='canvasDiv')
-            confirm("You will be logged out");
+        alert("You will be logged out");
     }
     wholeScreen = document.getElementsByClassName('part');
     wantedScreen = document.getElementById(screen);

@@ -129,18 +129,17 @@
             <div class="container">
                 <b><p> Game setting </p></b>
                 <p> Keyboard keys must be the default keys or the letters a-z only</p>
-                Button up keyboard key <input type="text" id="keyUp" value="ArrowUp" required><br>
-                Button down keyboard key <input type="text" id="keyDown" value="ArrowDown" required><br>
-                Button left keyboard key <input type="text" id="keyLeft" value="ArrowLeft" required><br>
+                Button up keyboard key <input type="text" id="keyUp" value="ArrowUp" required>
+                Button down keyboard key <input type="text" id="keyDown" value="ArrowDown" required>
+                Button left keyboard key <input type="text" id="keyLeft" value="ArrowLeft" required>
                 Button right keyboard key <input type="text" id="keyRight" value="ArrowRight" required><br>
-                Total number of balls <input type="number" min="50" max="90" id="numOfBalls" size="5" value="50"
-                                             required><br>
+                5 points balls color: <input type="color" id="fivePointsBall" value="#ff0000"><br>
+                15 points balls color: <input type="color" id="fifteenPointsBall" value="#ffff00"><br>
+                25 points balls color: <input type="color" id="twentyFivePointsBall" value="#00bfff"><br>
+                Total number of balls <input type="number" min="50" max="90" id="numOfBalls" size="5" value="50" required><br>
                 Total time of the Game<input type="number" min="60" id="timeGame" value="60" size="5" required><br>
-                Total Number of monster <input type="number" min="1" max="3" id="numOfMonsters" size="5" value="3"
-                                               required><br>
-                <button id="random" type="button" onclick="return randomize();">Set random settings</button>
-                <br>
-                <br>
+                Total Number of monster <input type="number" min="1" max="3" id="numOfMonsters" size="5" value="3" required><br>
+                <button id="random" type="button" onclick="return randomize();">Set random settings</button><br><br>
                 <button type="submit" id="submitSettings">Start game</button>
             </div>
         </form>
