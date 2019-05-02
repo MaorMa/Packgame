@@ -16,7 +16,7 @@ body{
 }
 #settingsForm{
     text-align: center;
-    height: 1000px;
+    height: 85%;
     background-repeat: no-repeat;
     position: center;
     background-image: url("img/login_back.jpg");
