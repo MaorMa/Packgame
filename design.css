@@ -281,7 +281,7 @@ input[type=text]:focus, input[type=password]:focus {
     width: 32%;
     height: 32%;
     margin-top: -7%;
-    margin-left: 5%;
+    margin-left: 9%;
     background-color: rgba(187, 193, 255, 0.733);
 }
 
