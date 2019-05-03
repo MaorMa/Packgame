@@ -109,7 +109,7 @@ $(document).ready(function () {
         //if length of password is valid check for numbers and characters
         else {
             //if not contains numbers and characters
-            if (!(inputValue.match(/\d/) && (inputValue.match(/^[a-zA-Z]/)))) {
+            if (!(inputValue.match(/\d/) && (inputValue.match(/[a-zA-Z]/)))) {
                 return false;
             } else { //if valid password
                 return true;
