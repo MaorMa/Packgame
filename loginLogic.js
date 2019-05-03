@@ -72,7 +72,17 @@ $(document).ready(function () {
         } else {
             $("#password_error").hide();
         }
+
+        //check if username exists
         user_name = $("#user_name_input").val(); //get value of user name
+        if (check_user_exists(user_name)) {
+            $("#username_error").html("Username already exists!");
+            $("#username_error").show();
+            return false;
+        } else {
+            $("#username_error").hide();
+        }
+
         email = $("#email_input").val(); //get value of email
         date_of_birth = $("#birth_date_input").val(); //get value of first name
         var user = {
@@ -146,13 +156,12 @@ $(document).ready(function () {
     function check_user_exists(username) {
         exists = false;
         user_array.forEach(function (element) {
-            if (element.username === username) {
+            if (element.username == username) {
                 exists = true;
             }
         });
         return exists;
     }
-
 });
 
 //modal
