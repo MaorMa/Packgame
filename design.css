@@ -278,8 +278,8 @@ input[type=text]:focus, input[type=password]:focus {
 #canvasDiv #canvas {
     border-style: dashed double none;
     border-width: 5px;
-    width: 35%;
-    height: 35%;
+    width: 32%;
+    height: 32%;
     margin-top: -7%;
     margin-left: 5%;
     background-color: rgba(187, 193, 255, 0.733);
