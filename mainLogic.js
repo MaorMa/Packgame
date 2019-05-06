@@ -715,6 +715,7 @@ function movePacman(x) {
         audioGame.pause();
         audioGame.currentTime = 0;
         audioWin.play();
+        clearIntervals()
         if(score<=150)
             window.alert("You can do better!");
         else
