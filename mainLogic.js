@@ -97,7 +97,6 @@ function Start() {
     boardSpecial = new Array();
     boardTreat = new Array();
     var food_remain = ballNum;
-    food_remaining = ballNum;
     time_elapsed = 0;
     for (var i = 0; i < 10; i++) {//print board
         board[i] = new Array();
@@ -114,11 +113,11 @@ function Start() {
     putMonsters();
     putTreat();
     //all food
-    var sml_food = food_remain * 0.6;
-    var med_food = food_remain * 0.3;
-    var big_food = food_remain * 0.1;
+    var sml_food = Math.floor(food_remain * 0.6);
+    var med_food = Math.floor(food_remain * 0.3);
+    var big_food = Math.floor(food_remain * 0.1);
+    food_remaining = sml_food + med_food + big_food;
     
-    while (food_remain > 0) {
         while(sml_food>0){
             var emptyCell = findRandomEmptyCell(board);
             board[emptyCell[0]][emptyCell[1]] = 1;
@@ -137,7 +136,6 @@ function Start() {
             big_food--;
             food_remain--;
         }
-    }
 
     var emptyCell = findRandomEmptyCell(board);//pacman
     board[emptyCell[0]][emptyCell[1]] = 2;
@@ -717,7 +715,6 @@ function movePacman(x) {
         audioGame.pause();
         audioGame.currentTime = 0;
         audioWin.play();
-        clearIntervals()
         if(score<=150)
             window.alert("You can do better!");
         else
