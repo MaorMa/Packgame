@@ -114,16 +114,29 @@ function Start() {
     putMonsters();
     putTreat();
     //all food
+    var sml_food = food_remain * 0.6;
+    var med_food = food_remain * 0.3;
+    var big_food = food_remain * 0.1;
+    
     while (food_remain > 0) {
-        var emptyCell = findRandomEmptyCell(board);
-        var rnd = Math.random();
-        if(rnd>=0.4)
+        while(sml_food>0){
+            var emptyCell = findRandomEmptyCell(board);
             board[emptyCell[0]][emptyCell[1]] = 1;
-        else if(rnd>0.1 && rnd<0.4)
+            sml_food--;
+            food_remain--;
+        }
+        while(med_food>0){
+            var emptyCell = findRandomEmptyCell(board);
             board[emptyCell[0]][emptyCell[1]] = 12;
-        else
+            med_food--;
+            food_remain--;
+        }
+        while(big_food>0){
+            var emptyCell = findRandomEmptyCell(board);
             board[emptyCell[0]][emptyCell[1]] = 13;
-        food_remain--;
+            big_food--;
+            food_remain--;
+        }
     }
 
     var emptyCell = findRandomEmptyCell(board);//pacman
