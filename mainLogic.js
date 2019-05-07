@@ -292,6 +292,7 @@ function clearIntervals(){
 function restart() {
     score = Math.max(score-10,0);
     lives = lives - 1;
+    board[pacman.i][pacman.j] = 0;
     if (lives == 0) {
         audioGame.pause();
         audioGame.currentTime = 0;
